@@ -50,6 +50,10 @@ a.btn {
   text-align: center;
 }
 
+a.selected {
+  color: #42ab68;
+}
+
 hr {
   width: 150px;
   height: 2px;

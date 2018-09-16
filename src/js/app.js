@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, Link, HashRouter as Router} from 'react-router-dom'
+import { Route, Redirect, Link, NavLink, HashRouter as Router} from 'react-router-dom'
 
 // Import specific icons
 import { FiHome } from "react-icons/fi";
@@ -18,7 +18,7 @@ import './../css/styles.css';
 const { render } = ReactDOM;
 
 const menuLinks = [
-  {id: 'home', link: "/", text: "Home", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiHome /></IconContext.Provider>},
+  {id: 'home', link: "/home", text: "Home", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiHome /></IconContext.Provider>},
   {id: 'products', link: "/products", text: "Products", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiShoppingBag /></IconContext.Provider>},
   {id: 'wholesale', link: "/wholesale", text: "Wholesale", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiBriefcase /></IconContext.Provider>},
   {id: 'contact', link: "/contact-us", text: "Contact", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiMail /></IconContext.Provider>},
@@ -28,7 +28,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <Link to="/">
+        <Link to="/home">
           <Logo title="Amm Zap" />
         </Link>
         <Nav links={menuLinks} />
@@ -54,9 +54,9 @@ class Nav extends React.Component {
         {this.props.links.map((menuLink) => {
           return (
             <li key={menuLink.id}>
-              <Link to={menuLink.link}>
+              <NavLink to={menuLink.link} activeClassName="selected">
                 {menuLink.icon} <span className="nav-icon-text">{menuLink.text}</span>
-              </Link>
+              </NavLink>
             </li>
           );
         })}
@@ -77,10 +77,13 @@ class Hero extends React.Component {
   render() {
     return (
       <section className="hero">
-        <div class="background-image"></div>
+        <div className="background-image"></div>
         <h3>Welcome to ZenThai</h3>
 
-        <p>ZenThai Trading Ltd. specialises in sourcing unique products from Thailand to the world’s kitchen. Our new product line is a specially selected dried fruit chilli paste which is high quality and suitable for vegans. These natural ingredients will make your dishes tastier but still remain healthy.</p>
+        <p>ZenThai Trading Ltd. specialises in sourcing unique products from Thailand to the world’s kitchen.
+        Our new product line is a specially selected dried fruit chilli paste which is high quality and suitable for vegans.
+        These natural ingredients will make your dishes tastier but still remain healthy.
+        </p>
 
         <hr />
 
@@ -139,7 +142,10 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Route exact path='/' component={Home} />
+        <Route exact path="/" render={() => (
+          <Redirect to="/home"/>
+        )}/>
+        <Route exact path='/home' component={Home} />
         <Route path='/products' component={ListProducts} />
         <Route path='/wholesale' component={Wholesale} />
         <Route path='/contact-us' component={ContactPage} />
@@ -270,7 +276,7 @@ class ContactPage extends React.Component {
 }
 
 render(
-  <Router basename="/page/">
+  <Router>
     <App />
   </Router>,
   document.getElementById('react-container')
