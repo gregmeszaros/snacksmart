@@ -498,7 +498,7 @@ footer p a {
   flex-shrink:0;
   flex-basis:100px;
   color:#fff;
-  background-image: url('../public/assets/img/logo/logoVeganWhite.png');
+  background-image: url('../assets/img/logo/logoVeganWhite.png');
   background-size: 70px;
   background-color:#42ab68;
   background-repeat: no-repeat;
