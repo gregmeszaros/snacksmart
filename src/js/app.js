@@ -77,14 +77,14 @@ class Hero extends React.Component {
   render() {
     return (
       <section className="hero">
-        <video key="hero-video" id="video-background" autoPlay loop muted plays-inline="true" src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4" />
+        <div class="background-image"></div>
         <h3>Welcome to ZenThai</h3>
 
         <p>ZenThai Trading Ltd. specialises in sourcing unique products from Thailand to the world’s kitchen. Our new product line is a specially selected dried fruit chilli paste which is high quality and suitable for vegans. These natural ingredients will make your dishes tastier but still remain healthy.</p>
 
         <hr />
 
-        <img src="assets/img/products/Apple-Chilli.png" width="220px" />
+        <img src="assets/img/products/Apple-Chilli.png" width="280px" />
 
         <Link to="/products" className="btn">
           See our full product range
@@ -98,7 +98,7 @@ class Hero extends React.Component {
 class SocialLinks extends React.Component {
   render() {
     return (
-      <section className="features">
+      <section className="features top-border">
         <h3 className="title">Find out more</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
         <hr />
@@ -226,7 +226,7 @@ class Wholesale extends React.Component {
               <h4>Box size:</h4>
               <img src="assets/img/box-size.png" alt="chilli sprinkle box size" className="img-responsive" />
             </p>
-            
+
           </div>
 
         </section>

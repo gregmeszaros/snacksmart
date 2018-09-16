@@ -8,6 +8,10 @@ General
   box-sizing: border-box;
 }
 
+body {
+  background: #f7f7f7;
+}
+
 html {
   font: normal 16px sans-serif;
   color: #555;
@@ -159,8 +163,14 @@ header nav li:last-child{
 Hero Section
 ----------------*/
 
-.background-image-not-use {
-  background-image: url('../public/assets/img/hero.jpg');
+@media (min-width: 1000px) {
+  .background-image {
+    margin-top: 50px;
+  }
+}
+
+.background-image {
+  background-image: url('../assets/img/background.gif');
 }
 
 #video-background {
@@ -328,6 +338,10 @@ Features Section
 
   .features .grid li{
     flex-basis: 100%;
+  }
+
+  .nav-icon-text {
+    display: none;
   }
 
 }
@@ -516,4 +530,13 @@ footer p a {
 .nav-icon-text {
   margin-top: 10px;
   float: left;
+}
+
+.top-border:before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 70%;
+  border-top: 2px solid #2196F3;
 }
