@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Route, Redirect, Link, NavLink, HashRouter as Router} from 'react-router-dom'
+import { Carousel } from "react-responsive-carousel";
 
 // Import specific icons
 import { FiHome } from "react-icons/fi";
@@ -14,6 +15,7 @@ import { FiSend } from "react-icons/fi";
 import { IconContext } from "react-icons";
 
 import './../css/styles.css';
+import './../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css'
 
 const { render } = ReactDOM;
 
@@ -87,7 +89,20 @@ class Hero extends React.Component {
 
         <hr />
 
-        <img src="assets/img/products/Apple-Chilli.png" width="280px" />
+        <Carousel showArrows={true} autoPlay interval={1000} infiniteLoop emulateTouch>
+          <div>
+            <img src="assets/img/products/Apple-Chilli.png" />
+            <p className="legend">Legend 1</p>
+          </div>
+          <div>
+            <img src="assets/img/products/Longan-Chilli.png" />
+            <p className="legend">Legend 2</p>
+          </div>
+          <div>
+            <img src="assets/img/products/Lychee-Chilli.png" />
+            <p className="legend">Legend 3</p>
+          </div>
+        </Carousel>
 
         <Link to="/products" className="btn">
           See our full product range
