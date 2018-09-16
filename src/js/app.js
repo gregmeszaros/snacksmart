@@ -89,7 +89,7 @@ class Hero extends React.Component {
 
         <hr />
 
-        <Carousel showArrows={true} autoPlay interval={1000} infiniteLoop emulateTouch>
+        <Carousel showArrows={true} autoPlay interval={5000} infiniteLoop emulateTouch>
           <div>
             <img src="assets/img/products/Apple-Chilli.png" />
             <p className="legend">Legend 1</p>
