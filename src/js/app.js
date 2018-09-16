@@ -154,6 +154,13 @@ class SocialLinks extends React.Component {
  * Wrapper component
  */
 class App extends React.Component {
+
+  componentDidUpdate(prevProps) {
+    // Changed scroll to top
+    console.log('changed');
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <React.Fragment>

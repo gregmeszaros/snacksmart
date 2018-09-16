@@ -563,3 +563,11 @@ footer p a {
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;
 }
+
+li.thumb {
+  border: none !important;
+}
+
+li.selected {
+  border: 2px solid #242425 !important;
+}
