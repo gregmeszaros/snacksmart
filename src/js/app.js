@@ -20,15 +20,15 @@ import './../../node_modules/react-responsive-carousel/lib/styles/carousel.min.c
 const { render } = ReactDOM;
 
 const menuLinks = [
-  {id: 'home', link: "/home", text: "Home", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiHome /></IconContext.Provider>},
-  {id: 'products', link: "/products", text: "Products", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiShoppingBag /></IconContext.Provider>},
-  {id: 'wholesale', link: "/wholesale", text: "Wholesale", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiBriefcase /></IconContext.Provider>},
-  {id: 'contact', link: "/contact-us", text: "Contact", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiMail /></IconContext.Provider>},
+  {id: "home", link: "/home", text: "Home", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiHome /></IconContext.Provider>},
+  {id: "products", link: "/products", text: "Products", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiShoppingBag /></IconContext.Provider>},
+  {id: "wholesale", link: "/wholesale", text: "Wholesale", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiBriefcase /></IconContext.Provider>},
+  {id: "contact", link: "/contact-us", text: "Contact", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiMail /></IconContext.Provider>},
 ];
 
 const productList = [
-  {id: '1', "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
-  {id: '2', "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
+  {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
 ];
 
 class Header extends React.Component {
@@ -209,13 +209,14 @@ class ListProducts extends React.Component {
           <h3 className="title">Our Products</h3>
 
           <ul className="grid">
-            {productList.map((productData) => {
+            {productList.map((productData, key) => {
               return (
-                <React.Fragment>
-                  <li key={productData.id} className="small">
-                    <img src={productData.imgUrl} className="img-responsive" />
+                <React.Fragment key={key}>
+                  <li key={productData.prodId} className="small">
+                    <img src={productData.imgUrl} />
                   </li>
-                  <li className="large">
+                  <li key={productData.textId} className="large">
+                    <br /><br />
                     - No preservatives <br />
                     - vegan friendly
                   </li>
