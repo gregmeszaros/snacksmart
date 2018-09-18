@@ -28,7 +28,10 @@ const menuLinks = [
 
 const productList = [
   {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
-  {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Longan-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "3", textId: "text-3", "imgUrl": "assets/img/products/Lychee-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
 ];
 
 class Header extends React.Component {
@@ -213,13 +216,18 @@ class ListProducts extends React.Component {
               return (
                 <React.Fragment key={key}>
                   <li key={productData.prodId} className="small">
-                    <img src={productData.imgUrl} className="img-responsive" />
+                    <img src={productData.imgUrl} className="img-responsive max-400" />
                   </li>
                   <li key={productData.textId} className="large">
-                    <br /><br />
-                    - No preservatives <br />
-                    - vegan friendly
+                    <br />
+
+                    <ul className="list-visible">
+                      <li className="list-circle">No preservatives</li>
+                      <li className="list-circle">vegan friendly</li>
+                    </ul>
+
                   </li>
+
                 </React.Fragment>
               );
             })}
@@ -248,33 +256,30 @@ class Wholesale extends React.Component {
             If you interested to buy products from us in bigger batch please contact us and we will come back to you.
           </p>
 
-          <div>
-            <ul className="list-visible">
-              <li className="list-circle">See our chilli paste range <a href="assets/pdf/zenthai-chilli.pdf" target="_blank"><b>here</b></a>.</li>
-              <li className="list-circle">See our NEW chilli herbs range <a href="assets/pdf/zenthai-chilli-herbs.pdf" target="_blank"><b>here</b></a>.</li>
-            </ul>
+          <ul className="list-visible">
+            <li className="list-circle">See our chilli paste range <a className="green-href" href="assets/pdf/zenthai-chilli.pdf" target="_blank"><b>here</b></a>.</li>
+            <li className="list-circle">See our NEW chilli herbs range <a className="green-href" href="assets/pdf/zenthai-chilli-herbs.pdf" target="_blank"><b>here</b></a>.</li>
+          </ul>
 
-            <p></p>
-            <ul className="list-visible">
-              <li className="list-circle"><b>Full price list available <a href="assets/pdf/zenthai-price-list-2018.pdf" target="_blank">here</a></b></li>
-            </ul>
+          <p></p>
+          <ul className="list-visible">
+            <li className="list-circle"><b>Full price list available <a className="green-href" href="assets/pdf/zenthai-price-list-2018.pdf" target="_blank">here</a></b>.</li>
+          </ul>
 
-            <p>
-              <h4>Sachet size:</h4>
-              <img src="assets/img/sachet-size.jpg" alt="chilli sprinkle sachet size" className="img-responsive" />
-            </p>
+          <p>
+            <h4>Sachet size:</h4>
+            <img src="assets/img/sachet-size.jpg" alt="chilli sprinkle sachet size" className="img-responsive" />
+          </p>
 
-            <p>
-              <h4>Sachet types</h4>
-              <img src="assets/img/packaging-new.jpg" alt="chilli sprinkle sachet packaging" className="img-responsive" />
-            </p>
+          <p>
+            <h4>Sachet types</h4>
+            <img src="assets/img/packaging-new.jpg" alt="chilli sprinkle sachet packaging" className="img-responsive" />
+          </p>
 
-            <p>
-              <h4>Box size:</h4>
-              <img src="assets/img/box-size.png" alt="chilli sprinkle box size" className="img-responsive" />
-            </p>
-
-          </div>
+          <p>
+            <h4>Box size:</h4>
+            <img src="assets/img/box-size.png" alt="chilli sprinkle box size" className="img-responsive" />
+          </p>
 
         </section>
         <SocialLinks />

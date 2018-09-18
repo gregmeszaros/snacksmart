@@ -27,6 +27,16 @@ ul.list-visible {
 
 li.list-circle {
   padding-bottom: 5px;
+  list-style-type: none;
+}
+
+li.list-circle:before {
+  content: '\2022';
+  color: #42ab68;
+  font-size: 2em;
+  padding-right: 0.2em;
+  vertical-align: middle;
+  padding-top: 0.1em;
 }
 
 a {
@@ -35,6 +45,14 @@ a {
   cursor: pointer;
 
   opacity: 0.9;
+}
+
+a.green-href:link {
+  color: #42ab68;
+  font-weight: bold;
+}
+a.green-href:visited {
+  color: #42ab68;
 }
 
 a:hover {
@@ -278,7 +296,7 @@ Our Work Section
 }
 
 .our-work .grid li {
-  padding: 20px;
+  padding-left: 30px;
   height: auto;
   border-radius: 3px;
 
@@ -520,6 +538,10 @@ footer p a {
     height: auto;
 }
 
+.max-400 {
+  max-width: 400px;
+}
+
 .bottomright {
   position:fixed;
   right:15px;
@@ -563,7 +585,7 @@ footer p a {
 
 .carousel {
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 450px;
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
