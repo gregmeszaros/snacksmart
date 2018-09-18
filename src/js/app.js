@@ -26,6 +26,11 @@ const menuLinks = [
   {id: 'contact', link: "/contact-us", text: "Contact", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiMail /></IconContext.Provider>},
 ];
 
+const productList = [
+  {id: '1', "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
+  {id: '2', "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+];
+
 class Header extends React.Component {
   render() {
     return (
@@ -200,12 +205,25 @@ class ListProducts extends React.Component {
     return (
       <div className="product-list">
         <Header />
-        <section className="features">
+        <section className="our-work">
           <h3 className="title">Our Products</h3>
 
-          <p>
-          Some of our nice products
-          </p>
+          <ul className="grid">
+            {productList.map((productData) => {
+              return (
+                <React.Fragment>
+                  <li key={productData.id} className="small">
+                    <img src={productData.imgUrl} className="img-responsive" />
+                  </li>
+                  <li className="large">
+                    - No preservatives <br />
+                    - vegan friendly
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+
         </section>
         <SocialLinks />
         <BottomRightSticky />

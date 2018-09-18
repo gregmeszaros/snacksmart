@@ -9,7 +9,7 @@ General
 }
 
 body {
-  background: black;
+  background-color: #f7f7f7;
 }
 
 html {
@@ -275,13 +275,13 @@ Our Work Section
 
 .our-work .grid li {
   padding: 20px;
-  height: 350px;
+  height: auto;
   border-radius: 3px;
 
   background-clip: content-box;
   background-size: cover;
   background-position: center;
-  background-color: #333;
+  background-color: #f7f7f7;;
 }
 
 .our-work .grid li.small {
