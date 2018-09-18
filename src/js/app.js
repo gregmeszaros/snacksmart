@@ -29,9 +29,9 @@ const menuLinks = [
 const productList = [
   {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
   {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Longan-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "3", textId: "text-3", "imgUrl": "assets/img/products/Lychee-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "3", textId: "text-3", "imgUrl": "assets/img/products/Lychee-Chilli.png", "title": "Lychee chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png", "title": "Mango chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "title": "Pineapple chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
 ];
 
 class Header extends React.Component {
@@ -219,7 +219,7 @@ class ListProducts extends React.Component {
                     <img src={productData.imgUrl} className="img-responsive max-400" />
                   </li>
                   <li key={productData.textId} className="large">
-                    <br />
+                    <h4>{productData.title}</h4>
 
                     <ul className="list-visible">
                       <li className="list-circle">No preservatives</li>

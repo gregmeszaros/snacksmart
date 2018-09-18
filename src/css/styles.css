@@ -105,6 +105,15 @@ section h3.title {
   text-align: center;
 }
 
+h4 {
+  color: #414a4f;
+  text-transform: uppercase;
+  font: bold 22px 'Open Sans', sans-serif;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
 section p {
   /*max-width: 800px;*/
   text-align: center;
