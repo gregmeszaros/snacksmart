@@ -269,7 +269,7 @@ Hero Section
 Our Work Section
 ---------------------*/
 
-.product-list {
+.contact-us, .wholesale, .product-list {
   background-color: #f7f7f7;
 }
 
@@ -294,6 +294,8 @@ Our Work Section
 
 .our-work .grid li.large {
   flex-basis: 60%;
+  /*background: #d1cccc;
+  border-radius: 15px;*/
 }
 
 
