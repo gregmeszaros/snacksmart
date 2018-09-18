@@ -213,7 +213,7 @@ class ListProducts extends React.Component {
               return (
                 <React.Fragment key={key}>
                   <li key={productData.prodId} className="small">
-                    <img src={productData.imgUrl} />
+                    <img src={productData.imgUrl} className="img-responsive" />
                   </li>
                   <li key={productData.textId} className="large">
                     <br /><br />
