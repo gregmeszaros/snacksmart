@@ -59,7 +59,7 @@ a:hover {
   opacity: 1;
 }
 
-a.btn {
+a.btn, button.btn {
   color: #fff;
   border-radius: 4px;
   text-transform: uppercase;
@@ -90,7 +90,7 @@ section {
 
 @media (max-width: 1000px) {
 
-  section{
+  section {
     padding: 100px 50px;
     margin-top: 150px;
   }
@@ -387,6 +387,10 @@ Features Section
     flex-basis: 100%;
   }
 
+  .contact-us .section p {
+    max-width: 320px;
+  }
+
   .nav-icon-text {
     display: none;
   }
@@ -457,12 +461,15 @@ Contact Section
 .contact form input, textarea {
   padding: 15px;
   flex: 1;
-  margin-right: 30px;
   font-size: 18px;
   color: #555;
+  max-width: 300px;
+  display: block;
+  margin-top: 5px;
 }
 
-.contact form .btn{
+.contact form .btn {
+  margin-top: 10px;
   padding: 18px 42px;
 }
 
@@ -607,4 +614,8 @@ li.thumb {
 
 li.selected {
   border: 2px solid #242425 !important;
+}
+
+.form-response-info {
+  max-width: 300px;
 }

@@ -293,6 +293,41 @@ class Wholesale extends React.Component {
  * Contact page component
  */
 class ContactPage extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {response: ""};
+  }
+
+  componentDidMount() {
+    // Only load on specific route
+    const script = document.createElement("script");
+      script.src = "https://www.google.com/recaptcha/api.js";
+      script.async = true;
+
+      document.body.appendChild(script);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch('contact.php', {
+      method: 'POST',
+      body: data,
+    })
+    .then(response => response.json())
+    .then(json => {
+        // After form successfully submitted we reset recaptcha
+        grecaptcha.reset();
+
+        // We show detailed information to the user
+        this.setState({ response: json.data.response });
+        console.log(json);
+      }
+    )
+  }
+
   render() {
     return (
       <div className="contact-us">
@@ -301,16 +336,18 @@ class ContactPage extends React.Component {
           <h3 className="title">Any questions please contact us</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
             <hr />
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <p>
-                <input type="name" placeholder="Your name" />
-                <input type="email" placeholder="Email" />
+                <input name="name" type="name" placeholder="Your name" required />
+                <input name="email" type="email" placeholder="Email" required />
               </p>
               <p>
-                <textarea rows="5" cols="50" value="Your query" />
+                <textarea name="query" rows="5" cols="50" placeholder="Your query" />
               </p>
               <p>
-                <a href="#" className="btn">Send <FiSend /></a>
+                <div className="g-recaptcha" data-sitekey="6LciUXEUAAAAAJ7jWX891bqSHmTKskNxHYg8S3dp"></div>
+                <div className="form-response-info">{this.state.response}</div>
+                <button className="btn">Send <FiSend /></button>
               </p>
             </form>
         </section>
