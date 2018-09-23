@@ -27,11 +27,11 @@ const menuLinks = [
 ];
 
 const productList = [
-  {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
-  {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Longan-Chilli.png", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "3", textId: "text-3", "imgUrl": "assets/img/products/Lychee-Chilli.png", "title": "Lychee chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png", "title": "Mango chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
-  {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "title": "Pineapple chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "short_title": "Apple", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
+  {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Longan-Chilli.png", "short_title": "Longan", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "3", textId: "text-3", "imgUrl": "assets/img/products/Lychee-Chilli.png", "short_title": "Lychee", "title": "Lychee chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png",  "short_title": "Mango", "title": "Mango chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
+  {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "short_title": "Pineapple", "title": "Pineapple chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
 ];
 
 class Header extends React.Component {
@@ -90,9 +90,10 @@ class Hero extends React.Component {
         <div className="background-image"></div>
         <h3>Welcome to ZenThai</h3>
 
-        <p>ZenThai Trading Ltd. specialises in sourcing unique products from Thailand to the world’s kitchen.
-        Our new product line is a specially selected dried fruit chilli paste which is high quality and suitable for vegans.
-        These natural ingredients will make your dishes tastier but still remain healthy.
+        <p>Here at Zen Thai we specialise in sourcing unique food products from Thailand to the European market. <br />
+          Our latest product line are specially selected dried fruits with chilli paste sprinkles which are high in quality and also suitable for vegans.
+          The product comes in 5 different flavours; mango, apple, pineapple, lychee and longan.
+          The combination of exotic dried fruits and chilli will surprisingly make your simple dishes tastier.
         </p>
 
         <hr />
@@ -100,15 +101,23 @@ class Hero extends React.Component {
         <Carousel showArrows={true} autoPlay interval={5000} infiniteLoop emulateTouch>
           <div>
             <img src="assets/img/products/Apple-Chilli.png" />
-            <p className="legend">Legend 1</p>
+            <p className="legend">Apple Chilli Sprinkle</p>
           </div>
           <div>
             <img src="assets/img/products/Longan-Chilli.png" />
-            <p className="legend">Legend 2</p>
+            <p className="legend">Longan Chilli Sprinkle</p>
           </div>
           <div>
             <img src="assets/img/products/Lychee-Chilli.png" />
-            <p className="legend">Legend 3</p>
+            <p className="legend">Lychee Chilli Sprinkle</p>
+          </div>
+          <div>
+            <img src="assets/img/products/Mango-Chilli.png" />
+            <p className="legend">Mano Chilli Sprinkle</p>
+          </div>
+          <div>
+            <img src="assets/img/products/Pineapple-Chilli.png" />
+            <p className="legend">Pineapple Chilli Sprinkle</p>
           </div>
         </Carousel>
 
@@ -126,7 +135,7 @@ class SocialLinks extends React.Component {
     return (
       <section className="features top-border">
         <h3 className="title">Find out more</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
+        <p>Follow us on Facebook or Instagram. If you have any questions or you interested to buy from us please do not hesitate to <Link to="/contact-us"><strong>contact us</strong></Link>.</p>
         <hr />
         <ul className="grid">
           <li>
@@ -134,7 +143,7 @@ class SocialLinks extends React.Component {
               <FiInstagram />
             </IconContext.Provider>
             <h4>Instagram</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices vitae pulvinar velit.</p>
+            <p>Follow us on Instagram.</p>
           </li>
 
           <li>
@@ -142,15 +151,15 @@ class SocialLinks extends React.Component {
               <FiFacebook />
             </IconContext.Provider>
             <h4>Facebook</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices vitae pulvinar velit.</p>
+            <p>Connect with us on Facebook.</p>
           </li>
 
           <li>
             <IconContext.Provider value={{ size: "2em", className: "social-mail-custom" }}>
               <FiMail />
             </IconContext.Provider>
-            <h4>E-mail</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices vitae pulvinar velit.</p>
+            <h4><Link to="/contact-us">E-mail</Link></h4>
+            <p>Interested to order from us, let us know.</p>
           </li>
         </ul>
       </section>
@@ -222,8 +231,15 @@ class ListProducts extends React.Component {
                     <h4>{productData.title}</h4>
 
                     <ul className="list-visible">
+                      <li className="list-circle">Dried {productData.short_title} 40%</li>
+                      <li className="list-circle">Garlic 20%</li>
+                      <li className="list-circle">Onion 20%</li>
+                      <li className="list-circle">Dried chilli 10%</li>
+                      <li className="list-circle">Sugar 9%</li>
+                      <li className="list-circle">Salt 1%</li>
                       <li className="list-circle">No preservatives</li>
-                      <li className="list-circle">vegan friendly</li>
+                      <li className="list-circle">Vegan friendly</li>
+                      <li className="list-circle">No MSG</li>
                     </ul>
 
                   </li>
@@ -253,12 +269,12 @@ class Wholesale extends React.Component {
           <h3 className="title">Wholesale</h3>
 
           <p>
-            If you interested to buy products from us in bigger batch please contact us and we will come back to you.
+             If you are interested in buying any of our products from us in wholesale then please <Link to="/contact-us"><strong>contact us</strong></Link> and we will be in touch.
           </p>
 
           <ul className="list-visible">
-            <li className="list-circle">See our chilli paste range <a className="green-href" href="assets/pdf/zenthai-chilli.pdf" target="_blank"><b>here</b></a>.</li>
-            <li className="list-circle">See our NEW chilli herbs range <a className="green-href" href="assets/pdf/zenthai-chilli-herbs.pdf" target="_blank"><b>here</b></a>.</li>
+            <li className="list-circle">See our chilli paste sprinkles range <a className="green-href" href="assets/pdf/zenthai-chilli.pdf" target="_blank"><b>here</b></a>.</li>
+            <li className="list-circle">See our NEW chilli herb sprinkles range <a className="green-href" href="assets/pdf/zenthai-chilli-herbs.pdf" target="_blank"><b>here</b></a>.</li>
           </ul>
 
           <p></p>
@@ -333,8 +349,8 @@ class ContactPage extends React.Component {
       <div className="contact-us">
         <Header />
         <section className="contact">
-          <h3 className="title">Any questions please contact us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
+          <h3 className="title">Contact us</h3>
+            <p>At Zen Thai we always like to hear your feedback or any questions that you might have, you can contact us via our email address <strong> <a href="mailto:zenthailtd@gmail.com" data-rel="external"> zenthailtd@gmail.com </a> </strong> or by filling the form below.</p>
             <hr />
             <form onSubmit={this.handleSubmit}>
               <p>
