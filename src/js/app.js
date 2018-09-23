@@ -17,6 +17,9 @@ import { IconContext } from "react-icons";
 import './../css/styles.css';
 import './../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css'
 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 const { render } = ReactDOM;
 
 const menuLinks = [
@@ -282,18 +285,19 @@ class Wholesale extends React.Component {
             <li className="list-circle"><b>Full price list available <a className="green-href" href="assets/pdf/zenthai-price-list-2018.pdf" target="_blank">here</a></b>.</li>
           </ul>
 
+
+          <h4>Sachet size:</h4>
           <p>
-            <h4>Sachet size:</h4>
             <img src="assets/img/sachet-size.jpg" alt="chilli sprinkle sachet size" className="img-responsive" />
           </p>
 
+          <h4>Sachet types</h4>
           <p>
-            <h4>Sachet types</h4>
             <img src="assets/img/packaging-new.jpg" alt="chilli sprinkle sachet packaging" className="img-responsive" />
           </p>
 
+          <h4>Box size:</h4>
           <p>
-            <h4>Box size:</h4>
             <img src="assets/img/box-size.png" alt="chilli sprinkle box size" className="img-responsive" />
           </p>
 
