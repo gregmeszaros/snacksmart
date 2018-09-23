@@ -457,7 +457,7 @@ Contact Section
   flex-wrap: wrap;
 
   max-width: 800px;
-  width: 80%;
+  /*width: 80%;*/
 }
 
 .contact form input, textarea {
@@ -535,6 +535,10 @@ footer p a {
 
   footer {
     padding: 80px 15px;
+  }
+
+  .carousel {
+    max-width: 320px !important;
   }
 
 }
