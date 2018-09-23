@@ -120,6 +120,7 @@ section p {
   margin-bottom: 35px;
   padding: 0 20px;
   line-height: 2;
+  max-width: 100%;
 }
 
 ul.grid {
