@@ -42,7 +42,7 @@ class Header extends React.Component {
     return (
       <header>
         <Link to="/home">
-          <Logo title="Amm Zap" />
+          <Logo title="Am Zap" />
         </Link>
         <Nav links={menuLinks} />
       </header>
@@ -91,7 +91,7 @@ class Hero extends React.Component {
     return (
       <section className="hero">
         <div className="background-image"></div>
-        <h3>Welcome to ZenThai</h3>
+        <h3>Welcome to Zen Thai</h3>
 
         <p>Here at Zen Thai we specialise in sourcing unique food products from Thailand to the European market. <br />
           Our latest product line are specially selected dried fruits with chilli paste sprinkles which are high in quality and also suitable for vegans.
@@ -116,7 +116,7 @@ class Hero extends React.Component {
           </div>
           <div>
             <img src="assets/img/products/Mango-Chilli.png" />
-            <p className="legend">Mano Chilli Sprinkle</p>
+            <p className="legend">Mango Chilli Sprinkle</p>
           </div>
           <div>
             <img src="assets/img/products/Pineapple-Chilli.png" />
@@ -252,6 +252,9 @@ class ListProducts extends React.Component {
             })}
           </ul>
 
+          <hr />
+          <img src="assets/img/am-zap-product-how.jpg" className="img-responsive max-400" />
+
         </section>
         <SocialLinks />
         <BottomRightSticky />
@@ -370,6 +373,20 @@ class ContactPage extends React.Component {
                 <button className="btn">Send <FiSend /></button>
               </p>
             </form>
+
+            <p>
+              <img src="assets/img/zen-thai-logo.png" width="150px" /><br />
+              <strong>ZEN THAI LTD</strong><br />
+              <strong>Tel: 074-956-66-956</strong><br />
+              <address class="vcard">
+                <span class="adr">
+                  <span class="street-address">35 Stainland Road</span><br />
+                  <span class="locality">Greetland, Halifax </span>
+                  <span class="postal-code">HX4 8AD</span><br />
+                  <span class="country-name">United Kingdom</span>
+                </span>
+              </address>
+            </p>
         </section>
         <SocialLinks />
         <BottomRightSticky />
