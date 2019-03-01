@@ -1,16 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, Redirect, Link, NavLink, HashRouter as Router} from 'react-router-dom'
+import { Route, Redirect, Link, HashRouter as Router, browserHistory} from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 
+// Header components
+import Header from "./components/Header/Header";
+
+// Async components
+import asyncComponent from "./AsyncComponent";
+
 // Import specific icons
-import { FiHome } from "react-icons/fi";
-import { FiShoppingBag } from "react-icons/fi";
-import { FiBriefcase } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 import { FiFacebook } from "react-icons/fi";
 import { FiInstagram } from "react-icons/fi";
 import { FiSend } from "react-icons/fi";
+import { FiShoppingCart} from "react-icons/fi";
 
 import { IconContext } from "react-icons";
 
@@ -22,13 +26,6 @@ require('isomorphic-fetch');
 
 const { render } = ReactDOM;
 
-const menuLinks = [
-  {id: "home", link: "/home", text: "Home", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiHome /></IconContext.Provider>},
-  {id: "products", link: "/products", text: "Products", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiShoppingBag /></IconContext.Provider>},
-  {id: "wholesale", link: "/wholesale", text: "Wholesale", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiBriefcase /></IconContext.Provider>},
-  {id: "contact", link: "/contact-us", text: "Contact", icon: <IconContext.Provider value={{ className: "nav-icon"}}><FiMail /></IconContext.Provider>},
-];
-
 const productList = [
   {prodId: "1", textId: "text-1", "imgUrl": "assets/img/products/Apple-Chilli.png", "short_title": "Apple", "title": "Apple chilli Sprinkle", "byline": "some short description 1", "text": "long text"},
   {prodId: "2", textId: "text-2", "imgUrl": "assets/img/products/Longan-Chilli.png", "short_title": "Longan", "title": "Longan chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
@@ -36,47 +33,6 @@ const productList = [
   {prodId: "4", textId: "text-4", "imgUrl": "assets/img/products/Mango-Chilli.png",  "short_title": "Mango", "title": "Mango chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
   {prodId: "5", textId: "text-5", "imgUrl": "assets/img/products/Pineapple-Chilli.png", "short_title": "Pineapple", "title": "Pineapple chilli Sprinkle", "byline": "some short description 2", "text": "long text"},
 ];
-
-class Header extends React.Component {
-  render() {
-    return (
-      <header>
-        <Link to="/home">
-          <Logo title="Am Zap" />
-        </Link>
-        <Nav links={menuLinks} />
-      </header>
-    );
-  }
-}
-
-class Logo extends React.Component {
-  render() {
-    return (
-      <h2>
-        <img src="assets/img/logo/logoAmmZapWhite.png" alt={this.props.title} className="logoImg" />
-      </h2>
-    );
-  }
-}
-
-class Nav extends React.Component {
-  render() {
-    return (
-      <nav>
-        {this.props.links.map((menuLink) => {
-          return (
-            <li key={menuLink.id}>
-              <NavLink to={menuLink.link} activeClassName="selected">
-                {menuLink.icon} <span className="nav-icon-text">{menuLink.text}</span>
-              </NavLink>
-            </li>
-          );
-        })}
-      </nav>
-    );
-  }
-}
 
 class BottomRightSticky extends React.Component {
   render() {
@@ -170,6 +126,11 @@ class SocialLinks extends React.Component {
   }
 }
 
+// Setup Cart route
+const CartPage = asyncComponent(() =>
+    import('./components/Cart/CartPage').then(module => module.default)
+)
+
 /**
  * Wrapper component
  */
@@ -191,6 +152,7 @@ class App extends React.Component {
         <Route path='/products' component={ListProducts} />
         <Route path='/wholesale' component={Wholesale} />
         <Route path='/contact-us' component={ContactPage} />
+        <Route path='/cart' component={CartPage} />
       </React.Fragment>
     );
   }
@@ -245,6 +207,10 @@ class ListProducts extends React.Component {
                       <li className="list-circle">No MSG</li>
                     </ul>
 
+                  </li>
+
+                  <li className="cart">
+                    <button id={productData.prodId} className="btn">Add to Cart <FiShoppingCart /></button>
                   </li>
 
                 </React.Fragment>
@@ -378,12 +344,12 @@ class ContactPage extends React.Component {
               <img src="assets/img/zen-thai-logo.png" width="150px" /><br />
               <strong>ZEN THAI LTD</strong><br />
               <strong>Tel: 074-956-66-956</strong><br />
-              <address class="vcard">
-                <span class="adr">
-                  <span class="street-address">35 Stainland Road</span><br />
-                  <span class="locality">Greetland, Halifax </span>
-                  <span class="postal-code">HX4 8AD</span><br />
-                  <span class="country-name">United Kingdom</span>
+              <address className="vcard">
+                <span className="adr">
+                  <span className="street-address">35 Stainland Road</span><br />
+                  <span className="locality">Greetland, Halifax </span>
+                  <span className="postal-code">HX4 8AD</span><br />
+                  <span className="country-name">United Kingdom</span>
                 </span>
               </address>
             </p>
@@ -396,8 +362,10 @@ class ContactPage extends React.Component {
 }
 
 render(
-  <Router>
+  <Router history={browserHistory}>
     <App />
   </Router>,
   document.getElementById('react-container')
 );
+
+export default App;

@@ -322,22 +322,30 @@ Our Work Section
 }
 
 .our-work .grid li.large {
-  flex-basis: 60%;
+  flex-basis: 50%;
   /*background: #d1cccc;
   border-radius: 15px;*/
 }
 
+.our-work .grid li.cart {
+  flex-basis: 10%;
+}
 
 @media (max-width: 1000px) {
 
-  .our-work .grid li.small,
-  .our-work .grid li.large {
+  .our-work .grid li.small {
     flex-basis: 100%;
   }
 
+  .our-work .grid li.large {
+    flex-basis: 90%;
+  }
+
+  .our-work .grid li.cart {
+    flex-basis: 10%;
+  }
+
 }
-
-
 
 /*----------------------
 Features Section
